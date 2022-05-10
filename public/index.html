@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una API JSON para obtener albures mexicanos.">
+    <meta name="keywords" content="api,albures,alburesmx,api json"/>
+    <link rel="icon" href="jova-favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <title>AlburesMX</title>
+</head>
+<body >
+    
+    <div class="container">
+        <div class="contenedor_titulo">
+            <h1><a id="titulo"  href="/">AlburesMX</a></h1>  <!--"https://api-albures-2.vercel.app"-->
+        </div>
+        <section>
+            <h3>Descripción:</h3>
+            <p>
+                AlburesMX es una API JSON sencilla y gratuita que permite obtener albures clasificados en diferentes categorias.
+                No es necesario crear una cuenta de usuario ni el uso de una clave API para poder usarla. 
+            </p>
+            <p>Las categorías disponibles son:</p>
+            <ul>
+                <li>comparativo</li>
+                <li>nombre</li>
+                <li>enunciado</li>
+                <li>piropo</li>
+                <li>pregunta</li>
+            </ul>
+            <p></p>
+        </section>
+        <section class="ejemplos">
+            <h3>Ejemplos de uso</h3>
+                <div class="contenedor_ejemplo">
+                    <p>- Para obtener los tipos de albures:</p>
+                    <div class="contenedor_link">   
+                        <code class="txt_copiar">GET <span id="copiar_url">https://api-alburesmx.vercel.app/albures/categorias</span></code>
+                        <div>
+                            <button id="btn_copiar1" class="btn_copiar" title="copiar" value="copiar1" 
+                            onclick="copiar(this)"><i class="fas fa-solid fa-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor_ejemplo">
+                    <p>- Para obtener un albur de una categoria específica:</p>
+                    <div class="contenedor_link">
+                        <code class="txt_copiar" >GET https://api-alburesmx.vercel.app/albures/{categoria}</code>
+                    </div>
+                    <p>- Ejemplo de la respuesta recibida:</p>
+                    <div class="contenedor_respuesta">
+                        <code> { <br>  "categoria":"comparativo", <br>  "albur":"No es lo mismo la papaya tapatía, que tápate la papaya Tía."<br> }</code>
+                    </div>
+                </div>
+                <div class="contenedor_ejemplo">
+                    <p>- Para obtener todos los albures de una categoria específica:</p>
+                    <div class="contenedor_link">
+                        <code class="txt_copiar">GET https://api-alburesmx.vercel.app/albures/{categoria}/todos</code>
+                    </div>
+                </div>
+        </section>
+        <section id="info">
+            <h3>Info:</h3>
+            <p> Este proyecto fue desarrollado usando Express.js y MongoDB.</p>
+            <p> Aquí podras encontrar el repositorio de github de este proyecto: 
+                <a rel="noreferrer" href="https://github.com/jovadev/api_alburesmx" target="_blank">AlburesMX</a> </p>
+        </section>
+        <footer>
+        
+            <div class="footer_div_social">
+                <div>
+                    <a rel="noreferrer" href="https://github.com/jovadev" 
+                    title="Repositorio github del autor" target="_blank" ><i class="fab fa-github repositorio"></i></a>
+                </div>
+            </div>
+            <div class="footer_div_autor">
+                <div><p>Por: jova.dev </p></div>
+                <div><p id="year">&copy; 2022</p></div>
+            </div>
+        </footer>   
+    </div> <!--fin container--> 
+
+    <script>
+        function copiar(btn){
+            let txt=document.getElementById('copiar_url').innerText;
+            navigator.clipboard.writeText(txt);
+            btn.classList.add('copiado');
+            setTimeout(()=>{
+                btn.innerHTML='<i class="fas fa-solid fa-copy"></i>';
+                btn.classList.remove('copiado');
+            },1000);
+        }
+    </script>
+
+    <script type="text/javascript" src="https://kit.fontawesome.com/f11e1bce80.js" crossorigin="anonymous"></script>
+    
+</body>
+</html>
